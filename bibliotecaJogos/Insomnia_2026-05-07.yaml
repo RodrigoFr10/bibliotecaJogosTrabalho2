@@ -1,0 +1,173 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1777595050890
+  modified: 1777595050890
+  description: ""
+collection:
+  - url: http://localhost:3000/api/categorias
+    name: postSlender
+    meta:
+      id: req_7b129241f3e04211bbbe72dc4261f1cc
+      created: 1777595241017
+      modified: 1778195498283
+      isPrivate: false
+      description: ""
+      sortKey: -1777595241017
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "nome": "Slender: The Arrival",
+          "preco": 39.90,
+          "plataforma": "PC",
+          "dataLancamento": "2013-03-26",
+          "categoria": {
+            "id": 2
+          }
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/categorias
+    name: getCategorias
+    meta:
+      id: req_b8201e64aad64218abc6ae25fa94bd71
+      created: 1778195416889
+      modified: 1778195561182
+      isPrivate: false
+      description: ""
+      sortKey: -1778195416889
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/produtos/4
+    name: updateProduto
+    meta:
+      id: req_518e1798b585425d9bd76b0609e91933
+      created: 1778195564508
+      modified: 1778196146016
+      isPrivate: false
+      description: ""
+      sortKey: -1778195564508
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "nome": "Call of Duty",
+          "preco": 199.9,
+          "plataforma": "PC, Consoles",
+          "dataLancamento": "2022-12-20"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/produtos/7
+    name: deleteProduto
+    meta:
+      id: req_755e3a7572ca4e4f99a5e649e90113c5
+      created: 1778196192634
+      modified: 1778196328624
+      isPrivate: false
+      description: ""
+      sortKey: -1778196192634
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/produtos/2
+    name: updateProdutoGoW
+    meta:
+      id: req_f4796bd534b94edda6c2a985dd4906fd
+      created: 1778196488291
+      modified: 1778196587101
+      isPrivate: false
+      description: ""
+      sortKey: -1778196488291
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "nome": "God of War",
+          "preco": 200.25,
+          "plataforma": "PC, Consoles",
+          "dataLancamento": "2022-12-20"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1777595149030
+    modified: 1777595149030
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1777595149027
+    modified: 1777595149027
+    isPrivate: false
