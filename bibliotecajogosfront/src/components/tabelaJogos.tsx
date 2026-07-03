@@ -1,7 +1,6 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Jogo } from "../types/Jogo";
-import TabelaJogos from "../components/tabelaJogos"
-import "./Jogos.css";
 
 export default function Jogos() {
 
@@ -14,11 +13,10 @@ export default function Jogos() {
             .then(data => setJogos(data));
 
     }, []);
-
+    
     return (
         <div>
-            <TabelaJogos></TabelaJogos>
-            {/* <h1>Lista de Jogos</h1>
+            <h1>Tabela de Jogos</h1>
 
             <table border={1}>
                 <thead>
@@ -43,7 +41,7 @@ export default function Jogos() {
                     ))}
                 </tbody>
 
-            </table> */}
+            </table>
         </div>
     );
 }

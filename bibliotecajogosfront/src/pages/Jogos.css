@@ -1,0 +1,21 @@
+table {
+    width: 80%;
+    margin-left: 10%;
+    border-collapse: collapse;
+    cursor: default;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+td, th {
+    border: 2px solid #ccc;
+    padding: 8px;
+}
+
+tr:hover{background-color: green;
+        color: white;
+        text-shadow: 0 0 8px white;
+}

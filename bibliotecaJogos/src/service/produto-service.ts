@@ -10,9 +10,22 @@ export class ProdutoService {
     }
 
     async inserir(produto: Produto): Promise<Produto> {
-        if(!produto || !produto.nome || !produto.preco) {
-            throw({id:400, msg: "Falta dados obrigatorios de produto"});            
+
+        if (!produto || !produto.nome || !produto.preco) {
+            throw({id: 400, msg: "Falta dados obrigatórios de produto"});
         }
+
+        const nome = produto.nome.trim().toLowerCase(); //transforma tudo em lowercase
+        const jogos = await this.repository.find();
+
+        const repetido = jogos.find(
+            jogo => jogo.nome?.trim().toLowerCase() === nome //busca um jogo com nome igual
+        );
+
+        if (repetido) { //se encontrou jogo com nome igual, erro
+            throw({id: 400, msg: "Já existe um jogo com esse nome."});
+        }
+
         return await this.repository.save(produto);
     }
 

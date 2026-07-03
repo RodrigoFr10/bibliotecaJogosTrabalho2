@@ -1,0 +1,43 @@
+#divTituloCat{background-color: green;
+        width: 120%;
+        padding: 10px;
+        color: white;
+        margin-top: -10%;
+        margin-left: -10%;
+        margin-bottom: 40px;
+        padding-left: 5%;
+}
+#containerCadCat{background-color: #cacaca;
+    box-sizing: border-box;
+    border:2px solid #333;
+    overflow: hidden;
+    border-radius: 20px;
+    padding: 5%;
+    width:60%;
+    margin-left: 20%;
+    margin-top: 20px;
+}
+input{width: 40%;
+    display: block;
+    margin-bottom: 20px;
+}
+input:hover, select:hover{box-shadow: 0 0 4px lime;}
+
+select{display: block;
+    margin-bottom: 20px;
+}
+
+#cadCatBtn{background-color: green;
+        color: white;
+        font-size: 18px;
+        padding: 8px;
+        border: 3px solid #006700;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-bottom: 0;
+}
+
+#cadCatBtn:hover{
+    background-color: lime;
+    border: 3px solid #00a400;
+}

@@ -15,6 +15,10 @@ export class CategoriaController {
         } catch (err: any) {
             res.status(err.id || 500).json({ error: err.msg });
         }
+        throw({
+            id: 400,
+            msg: "Já existe uma categoria com esse nome."
+        });
     };
 
     listar = async (_req: Request, res: Response) => {

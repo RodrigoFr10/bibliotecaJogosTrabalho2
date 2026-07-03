@@ -18,6 +18,10 @@ export class ProdutoController {
         catch(err: any) {
             res.status(err.id).json({ error: err.msg});
         }
+        throw({
+            id: 400,
+            msg: "Já existe um jogo com esse nome."
+        });
     }
 
     listar = async (_req: Request, res: Response): Promise<void> => {

@@ -1,5 +1,6 @@
 import {  useEffect, useState } from "react";
 import { Categoria } from "../types/Categoria";
+import "./CadastroJogo.css"
 
 export default function CadastroJogo() {
     const [nome, setNome] = useState("");
@@ -9,7 +10,7 @@ export default function CadastroJogo() {
     const [categoriaId, setCategoriaId] = useState(1);
     const [categorias, setCategorias] = useState<Categoria[]>([]);
 
-    async function cadastrar() {
+   async function cadastrar() {
 
     const jogo = {
         nome,
@@ -20,8 +21,12 @@ export default function CadastroJogo() {
             id: categoriaId
         }
     };
+    if (nome.trim() === "" || plataforma === "" || dataLancamento === "") {
+        alert("Preencha todos os campos.");
+        return;
+    }
 
-    await fetch("http://localhost:3001/api/produtos", {
+    const response = await fetch("http://localhost:3001/api/produtos", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -29,6 +34,19 @@ export default function CadastroJogo() {
         body: JSON.stringify(jogo)
     });
 
+    const dados = await response.json();
+
+    if (response.ok) {//retornando resposta
+        alert("Jogo cadastrado com sucesso!");
+
+        setNome("");
+        setPreco(0);
+        setPlataforma("");
+        setDataLancamento("");
+        setCategoriaId(1);
+    } else {
+        alert(dados.error);
+    }
 }
 useEffect(() => {
     fetch("http://localhost:3001/api/categorias")
@@ -37,13 +55,17 @@ useEffect(() => {
     }, []);
     return (
         <div>
-             <h1>Cadastrar Jogo</h1>
+            <div id="containerCadJogo">
+                <div id="divTituloJogo">
+                     <h1>Cadastrar Jogo</h1>
+                </div>
+               
 
-            <form onSubmit={(e) => {
-                e.preventDefault();
-                cadastrar();
-            }}
->
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    cadastrar();
+                }}
+    >
                 <label htmlFor="nomeJogo">Nome:</label>
                 <input type="text" id="nomeJogo" name="nomeJogo" value={nome} onChange={(e) => setNome(e.target.value)}/>
                 
@@ -75,8 +97,9 @@ useEffect(() => {
                         </option>
                     ))}
                 </select>
-                <input type="submit" value="Cadastrar Jogo"/>
+                <input id="cadJogoBtn" type="submit" value="Cadastrar Jogo"/>
             </form>
+            </div>
         </div>
        
     );

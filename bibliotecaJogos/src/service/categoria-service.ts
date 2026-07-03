@@ -9,6 +9,21 @@ export class CategoriaService {
     }
 
     async inserir(categoria: Categoria) {
+        if (!categoria.nome) { //verifica se um nome foi recebido
+            throw({id: 400, msg: "Nome obrigatório."});
+        }
+        const nome = categoria.nome.trim().toLowerCase(); //transforma tudo em lowercase
+        const categorias = await this.repository.find();
+
+
+        const repetido = categorias.find(
+            cat => cat.nome?.trim().toLowerCase() === nome //busca uma categoria com nome igual
+        );
+
+        if (repetido) { //se encontrou categoria com nome igual, erro
+            throw({id: 400, msg: "Já existe uma categoria com esse nome."});
+        }
+
         return this.repository.save(categoria);
     }
 
