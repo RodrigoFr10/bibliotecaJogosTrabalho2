@@ -1,6 +1,7 @@
 import {  useEffect, useState } from "react";
 import { Categoria } from "../types/Categoria";
 import "./CadastroJogo.css"
+import { useNavigate } from "react-router-dom";
 
 export default function CadastroJogo() {
     const [nome, setNome] = useState("");
@@ -9,6 +10,7 @@ export default function CadastroJogo() {
     const [dataLancamento, setDataLancamento] = useState("");
     const [categoriaId, setCategoriaId] = useState(1);
     const [categorias, setCategorias] = useState<Categoria[]>([]);
+    const navigate = useNavigate();
 
    async function cadastrar() {
 
@@ -44,6 +46,7 @@ export default function CadastroJogo() {
         setPlataforma("");
         setDataLancamento("");
         setCategoriaId(1);
+        navigate("/jogos");
     } else {
         alert(dados.error);
     }
