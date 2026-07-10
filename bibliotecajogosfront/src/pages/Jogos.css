@@ -5,6 +5,8 @@ table {
     cursor: default;
 }
 
+h1,p{padding-left: 25px;}
+
 th {
     background-color: #333;
     color: white;
