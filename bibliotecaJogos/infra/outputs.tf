@@ -1,0 +1,1 @@
+# Outputs da infraestrutura serão definidos aqui
